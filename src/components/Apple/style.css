@@ -2,3 +2,12 @@
     position: absolute;
     height: 50px;
 }
+.fallen{
+    animation: fall 6s 1 ease-in forwards;
+  }
+  
+@keyframes fall {
+    100%{
+      transform: translateY(250px);
+    }
+  }

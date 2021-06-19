@@ -11,11 +11,13 @@ export default function App() {
 
    return (
       <div className="app">
-         <Tree />
-         {arr.map(id =>
-            <Apple key={id} />
-         )}
          <Basket />
+         <div className="tree">
+            <Tree />
+            {arr.map(id =>
+               <Apple key={id} id={id} />
+            )}
+         </div>
          <ShakeButton />
       </div>
    );

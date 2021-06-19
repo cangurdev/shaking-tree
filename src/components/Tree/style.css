@@ -1,5 +1,6 @@
 .tree{
-    height: 500px;
+    height: 700px;
+
 }
 .shake{
     animation: shake infinite 0.8s cubic-bezier(.36,.07,.19,.97) both;
@@ -7,7 +8,6 @@
     backface-visibility: hidden;
     perspective: 1000px;
   }
-  
 @keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
