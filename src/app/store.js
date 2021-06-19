@@ -5,6 +5,6 @@ import appleReducer from './appleSlice'
 export default configureStore({
   reducer: {
     isShaked: shakerReducer,
-    fallenApples: appleReducer,
+    apples: appleReducer,
   }
 })

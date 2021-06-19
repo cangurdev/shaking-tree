@@ -1,20 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const appleSlice = createSlice({
-    name: 'fallenApples',
+    name: 'apples',
     initialState: {
-        value: []
+        applesInFall: [],
+        applesOnTree: [1, 2, 3, 4, 5, 6, 7, 8],
     },
     reducers: {
-        add: (state, action) => {
-            state.value += action.payload
+        addApplesToFall: (state, action) => {
+            state.applesInFall += action.payload
         },
-        clear: state => {
-            state.value = []
+        clearApplesInFall: state => {
+            state.applesInFall = []
         },
+        removeAppleFromTree: (state, action) => {
+            const index = state.applesOnTree.indexOf(action.payload); //Gets index of the element
+            state.applesOnTree.splice(index,1) //Removes apple from the tree
+        }
     }
 })
 
-export const { add, clear } = appleSlice.actions
+export const { addApplesToFall, clearApplesInFall, removeAppleFromTree } = appleSlice.actions
 
 export default appleSlice.reducer

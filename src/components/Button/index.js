@@ -1,20 +1,25 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './style.css';
 import { shake, stop } from '../../app/shakerSlice'
-import { add, clear } from '../../app/appleSlice'
+import { addApplesToFall, removeAppleFromTree } from '../../app/appleSlice'
 
 export default function ShakeButton() {
     const dispatch = useDispatch()
+    const apples = useSelector(state => state.apples.applesOnTree); //Get apples from state
+    
     const afterShake = () => {
         dispatch(stop()); //Stops tree shaking
 
-        const id = Math.floor(Math.random() * 5);
-        dispatch(add(id));
+        const applesLength = apples.length; //Get apples length
+        const id = apples[Math.floor(Math.random() * applesLength)]; //Get random apple from tree
+
+        dispatch(addApplesToFall(id));
+        dispatch(removeAppleFromTree(id));
     }
     const shakeIt = () => {
         dispatch(shake()); //Shakes tree
-        setTimeout(function (){afterShake()}, 3000); 
+        setTimeout(function () { afterShake() }, 3000);
     }
     return (
         <button className="button" onClick={shakeIt}>Salla</button>
