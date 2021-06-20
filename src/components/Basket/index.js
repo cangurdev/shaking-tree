@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from '../../assets/basket.svg';
-import './style.css';
+import './style.scss';
 
 export default function Tree(){
 

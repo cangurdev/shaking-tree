@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from '../../assets/tree.svg';
 import { useSelector } from 'react-redux'
-import './style.css';
+import './style.scss';
 
 export default function Tree() {
     const isShaked = useSelector(state => state.isShaked.value);
