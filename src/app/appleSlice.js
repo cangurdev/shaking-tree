@@ -10,11 +10,7 @@ export const appleSlice = createSlice({
         setApplesInFall: (state, action) => {
             state.applesInFall = action.payload
         },
-        clearApplesInFall: (state, action) => {
-            // const index = state.applesInFall.indexOf(action.payload); //Gets index of the apple
-
-            // state.applesInFall.splice(index, 1)
-            // console.log(state.applesInFall);
+        clearApplesInFall: (state) => {
             state.applesInFall = []
         },
         setApplesOnTree: (state, action) => {

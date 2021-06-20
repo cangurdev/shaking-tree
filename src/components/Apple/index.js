@@ -21,10 +21,10 @@ export default function Apple(props) {
     }
 
     if (fallenApples.includes(props.id)) {
-        setTimeout(function name() {
+        setTimeout(function () {
             setBottom(75);
             setLeft(10 * props.id);
-        }, (2 + 1 + 1) * 1000);
+        }, 4 * 1000);
     }
 
     const isOnTree = applesOnTree.includes(props.id);
