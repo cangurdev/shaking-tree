@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import Image from '../../assets/apple.svg';
 import './style.scss';
-import { useSelector, useDispatch } from 'react-redux'
-import { clearApplesInFall } from '../../app/appleSlice'
+import { useSelector } from 'react-redux'
+import { randomInt } from '../../utils'
 
 export default function Apple(props) {
     const fallenApples = useSelector(state => state.apples.applesInFall);
     const applesOnTree = useSelector(state => state.apples.applesOnTree);
-
-    const [bottom, setBottom] = useState(Math.floor((Math.random() * window.innerHeight * 0.5) + window.innerHeight * 0.25));
-    const [left, setLeft] = useState(Math.floor(Math.random() * window.innerWidth * 0.2) + (window.innerWidth * 0.25));
-
     const isShaked = useSelector(state => state.isShaked.value);
-    const dispatch = useDispatch()
+
+    const randomBottomValue = randomInt(window.innerHeight * 0.25, window.innerHeight * 0.75)
+    const randomLeftValue = randomInt(window.innerWidth * 0.25, window.innerWidth * 0.45)
+
+    const [bottom, setBottom] = useState(randomBottomValue);
+    const [left, setLeft] = useState(randomLeftValue);
 
     let style = {
         bottom: bottom,

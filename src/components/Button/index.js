@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './style.scss';
 import { shake, stop } from '../../app/shakerSlice'
 import { setApplesInFall, setApplesOnTree, clearApplesInFall } from '../../app/appleSlice'
+import { randomInt } from '../../utils'
 
 export default function ShakeButton() {
     const dispatch = useDispatch()
@@ -14,10 +15,10 @@ export default function ShakeButton() {
 
         const applesLength = applesOnTree.length; //Get apples length
 
-        const fallCount = [Math.floor(Math.random() * applesLength) + 1];
+        const fallCount = randomInt(1, applesLength);
 
         for (let i = 0; i < fallCount; i++) {
-            const randomAppleIndex = Math.floor(Math.random() * (applesOnTree.length - 1));
+            const randomAppleIndex = randomInt(0, applesOnTree.length - 1);
             const apple = applesOnTree[randomAppleIndex]; //Get random apple from tree
 
             fallenApples.push(apple);
