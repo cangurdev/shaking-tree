@@ -2,20 +2,31 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import './style.css';
 import { shake, stop } from '../../app/shakerSlice'
-import { addApplesToFall, removeAppleFromTree } from '../../app/appleSlice'
+import { setApplesInFall, setApplesOnTree } from '../../app/appleSlice'
 
 export default function ShakeButton() {
     const dispatch = useDispatch()
-    const apples = useSelector(state => state.apples.applesOnTree); //Get apples from state
-    
+    let apples = useSelector(state => state.apples.applesOnTree); //Get apples from state
+    let fallenApples = [];
+    let applesOnTree = [...apples]
     const afterShake = () => {
         dispatch(stop()); //Stops tree shaking
 
-        const applesLength = apples.length; //Get apples length
-        const id = apples[Math.floor(Math.random() * applesLength)]; //Get random apple from tree
+        const applesLength = applesOnTree.length; //Get apples length
 
-        dispatch(addApplesToFall(id));
-        dispatch(removeAppleFromTree(id));
+        const fallCount = [Math.floor(Math.random() * applesLength) + 1];
+
+        for (let i = 0; i < fallCount; i++) {
+            const randomAppleIndex = Math.floor(Math.random() * (applesOnTree.length - 1));
+            const apple = applesOnTree[randomAppleIndex]; //Get random apple from tree
+
+            fallenApples.push(apple);
+            const index = applesOnTree.indexOf(apple); //Gets index of the apple
+
+            applesOnTree.splice(index, 1)
+        }
+        dispatch(setApplesInFall(fallenApples));
+        dispatch(setApplesOnTree(applesOnTree));
     }
     const shakeIt = () => {
         dispatch(shake()); //Shakes tree
