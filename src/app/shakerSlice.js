@@ -6,15 +6,15 @@ export const shakerSlice = createSlice({
         value: false
     },
     reducers: {
-        shake: state => {
+        startShake: state => {
             state.value = true
         },
-        stop: state => {
+        stopShake: state => {
             state.value = false
         }
     }
 })
 
-export const { shake, stop } = shakerSlice.actions
+export const { startShake, stopShake } = shakerSlice.actions
 
 export default shakerSlice.reducer

@@ -5,7 +5,8 @@ import './style.scss';
 
 export default function Tree() {
     const isShaked = useSelector(state => state.isShaked.value);
+
     return (
-        <Image className={"tree " + (isShaked ? "shake" : "stop")} />
+        <Image className={"tree " + (isShaked ? "shake" : "")} />
     )
 }

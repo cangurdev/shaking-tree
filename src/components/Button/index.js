@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import './style.scss';
-import { shake, stop } from '../../app/shakerSlice'
+import { startShake, stopShake } from '../../app/shakerSlice'
 import { setApplesInFall, setApplesOnTree, clearApplesInFall } from '../../app/appleSlice'
 import { randomInt } from '../../utils'
 
@@ -11,7 +11,7 @@ export default function ShakeButton() {
     let fallenApples = [];
     let applesOnTree = [...apples]
     const afterShake = () => {
-        dispatch(stop()); //Stops tree shaking
+        dispatch(stopShake()); //Stops tree shaking
 
         const applesLength = applesOnTree.length; //Get apples length
 
@@ -32,11 +32,11 @@ export default function ShakeButton() {
         setTimeout(function name() {
             dispatch(clearApplesInFall());
 
-        }, (4) * 1000);
+        }, 4 * 1000);
 
     }
     const shakeIt = () => {
-        dispatch(shake()); //Shakes tree
+        dispatch(startShake()); //Shakes tree
         setTimeout(function () { afterShake() }, 3000);
     }
     return (
