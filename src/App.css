@@ -1,5 +1,5 @@
 .app{
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
     display: flex;
     flex-direction: row;
@@ -13,6 +13,8 @@ body{
 .tree{
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 75vw;
+    height: 90vh;
     display: flex;
+    position: relative;
 }

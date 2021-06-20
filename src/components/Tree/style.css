@@ -1,6 +1,4 @@
 .tree{
-    height: 700px;
-
 }
 .shake{
     animation: shake infinite 0.8s cubic-bezier(.36,.07,.19,.97) both;

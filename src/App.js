@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 
 import Tree from './components/Tree';
 import Apple from './components/Apple';
@@ -7,16 +8,17 @@ import ShakeButton from './components/Button';
 import './App.css';
 
 export default function App() {
-   const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+   // const applesOnTree = useSelector(state => state.apples.applesOnTree);
+   const applesOnTree = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
    return (
       <div className="app">
-         <Basket />
          <div className="tree">
             <Tree />
-            {arr.map(id =>
+            {applesOnTree.map(id =>
                <Apple key={id} id={id} />
             )}
+            <Basket />
          </div>
          <ShakeButton />
       </div>
